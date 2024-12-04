@@ -10,7 +10,7 @@ $(function () {
 
   if (dt_projects_table.length) {
     var dt_project = dt_projects_table.DataTable({
-      ajax: assetsPath + 'json/user-profile.json',
+      ajax: assetsPath + '/json/user-profile.json',
       columns: [
         { data: '' },
         { data: 'id' },
@@ -57,7 +57,7 @@ $(function () {
             if ($user_img) {
               // For Avatar image
               var $output =
-                '<img src="' + assetsPath + 'img/icons/brands/' + $user_img + '" alt="Avatar" class="rounded-circle">';
+                '<img src="' + assetsPath + '/img/icons/brands/' + $user_img + '" alt="Avatar" class="rounded-circle">';
             } else {
               // For Avatar badge
               var stateNum = Math.floor(Math.random() * 6);

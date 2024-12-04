@@ -11,7 +11,7 @@ $(function () {
   // Invoice datatable
   if (dt_invoice_table.length) {
     var dt_invoice = dt_invoice_table.DataTable({
-      ajax: assetsPath + 'json/invoice-list.json', // JSON file to add data
+      ajax: assetsPath + '/json/invoice-list.json', // JSON file to add data
       columns: [
         // columns according to JSON
         { data: '' },
@@ -103,7 +103,7 @@ $(function () {
             if ($image === true) {
               // For Avatar image
               var $output =
-                '<img src="' + assetsPath + 'img/avatars/' + $user_img + '" alt="Avatar" class="rounded-circle">';
+                '<img src="' + assetsPath + '/img/avatars/' + $user_img + '" alt="Avatar" class="rounded-circle">';
             } else {
               // For Avatar badge
               var stateNum = Math.floor(Math.random() * 6),

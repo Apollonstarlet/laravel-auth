@@ -590,7 +590,7 @@
   var chartJson = 'sales-profit-charts.json';
   // Sales & Profit Chart JSON data
   var salesProfitChart = $.ajax({
-    url: assetsPath + 'json/' + chartJson, //? Use your own search api instead
+    url: assetsPath + '/json/' + chartJson, //? Use your own search api instead
     dataType: 'json',
     async: false
   }).responseJSON;

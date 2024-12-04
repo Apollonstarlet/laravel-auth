@@ -20,7 +20,7 @@
   const kanbanOffcanvas = new bootstrap.Offcanvas(kanbanSidebar);
 
   // Get kanban data
-  const kanbanResponse = await fetch(assetsPath + 'json/kanban.json');
+  const kanbanResponse = await fetch(assetsPath + '/json/kanban.json');
   if (!kanbanResponse.ok) {
     console.error('error', kanbanResponse);
   }

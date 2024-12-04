@@ -343,7 +343,7 @@
       Swal.fire({
         title: 'Sweet!',
         text: 'Modal with a custom image.',
-        imageUrl: assetsPath + 'img/backgrounds/15.jpg',
+        imageUrl: assetsPath + '/img/backgrounds/15.jpg',
         imageWidth: 400,
         imageAlt: 'Custom image',
         customClass: {

@@ -97,7 +97,7 @@ $(function () {
   if (dt_ajax_table.length) {
     var dt_ajax = dt_ajax_table.dataTable({
       processing: true,
-      ajax: assetsPath + 'json/ajax.php',
+      ajax: assetsPath + '/json/ajax.php',
       dom: '<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6 d-flex justify-content-center justify-content-md-end"f>><"table-responsive"t><"row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>'
     });
   }
@@ -120,7 +120,7 @@ $(function () {
     });
 
     var dt_filter = dt_filter_table.DataTable({
-      ajax: assetsPath + 'json/table-datatable.json',
+      ajax: assetsPath + '/json/table-datatable.json',
       columns: [
         { data: 'full_name' },
         { data: 'email' },
@@ -141,7 +141,7 @@ $(function () {
   if (dt_adv_filter_table.length) {
     var dt_adv_filter = dt_adv_filter_table.DataTable({
       dom: "<'row'<'col-sm-12'tr>><'row'<'col-sm-12 col-md-6'i><'col-sm-12 col-md-6 dataTables_pager'p>>",
-      ajax: assetsPath + 'json/table-datatable.json',
+      ajax: assetsPath + '/json/table-datatable.json',
       columns: [
         { data: '' },
         { data: 'full_name' },
@@ -208,7 +208,7 @@ $(function () {
 
   if (dt_responsive_table.length) {
     var dt_responsive = dt_responsive_table.DataTable({
-      ajax: assetsPath + 'json/table-datatable.json',
+      ajax: assetsPath + '/json/table-datatable.json',
       columns: [
         { data: '' },
         { data: 'full_name' },

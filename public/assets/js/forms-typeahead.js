@@ -114,7 +114,7 @@ $(function () {
   var prefetchExample = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.whitespace,
     queryTokenizer: Bloodhound.tokenizers.whitespace,
-    prefetch: assetsPath + 'json/typeahead.json'
+    prefetch: assetsPath + '/json/typeahead.json'
   });
 
   // Prefetch Example
@@ -156,7 +156,7 @@ $(function () {
   var customTemplate = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
     queryTokenizer: Bloodhound.tokenizers.whitespace,
-    prefetch: assetsPath + 'json/typeahead-data-2.json'
+    prefetch: assetsPath + '/json/typeahead-data-2.json'
   });
 
   // Custom Template

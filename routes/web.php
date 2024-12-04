@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\QuotesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +24,7 @@ Route::get('email/verify', [PageController::class, 'Refresh'])->name('verificati
 Route::get('lang/{locale}', [LanguageController::class, 'swap']);
 Route::get('fresh', function() { Artisan::call('migrate:fresh'); return back();});
 Route::get('migrate', function() { Artisan::call('thinker'); return back();});
+
 // Cache Clear
 Route::get('clear', function() {
     $exitCode = Artisan::call('config:clear');
@@ -38,7 +40,9 @@ Route::post('signup', [PageController::class, 'Signup'])->name('signup');
 
 
                            // User panel 
-Route::get('home', [PageController::class, 'Home'])->name('home');
+Route::get('home', [QuotesController::class, 'Home'])->name('user-home');
+Route::get('setting', [QuotesController::class, 'Setting'])->name('setting');
+Route::get('security', [QuotesController::class, 'Security'])->name('security');
 
                           // Artist
 // // Overview

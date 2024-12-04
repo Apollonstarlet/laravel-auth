@@ -4473,8 +4473,8 @@
   if (customIconsVar) {
     const customIcons = L.map('customIcons').setView([51.5, -0.09], 10);
     const greenLeaf = L.icon({
-      iconUrl: assetsPath + 'img/icons/misc/leaf-green.png',
-      shadowUrl: assetsPath + 'img/icons/misc/leaf-shadow.png',
+      iconUrl: assetsPath + '/img/icons/misc/leaf-green.png',
+      shadowUrl: assetsPath + '/img/icons/misc/leaf-shadow.png',
       iconSize: [38, 95],
       shadowSize: [50, 64],
       iconAnchor: [22, 94],
@@ -4482,8 +4482,8 @@
       popupAnchor: [-3, -76]
     });
     const redLeaf = L.icon({
-      iconUrl: assetsPath + 'img/icons/misc/leaf-red.png',
-      shadowUrl: assetsPath + 'img/icons/misc/leaf-shadow.png',
+      iconUrl: assetsPath + '/img/icons/misc/leaf-red.png',
+      shadowUrl: assetsPath + '/img/icons/misc/leaf-shadow.png',
       iconSize: [38, 95],
       shadowSize: [50, 64],
       iconAnchor: [22, 94],
@@ -4491,8 +4491,8 @@
       popupAnchor: [-3, -76]
     });
     const orangeLeaf = L.icon({
-      iconUrl: assetsPath + 'img/icons/misc/leaf-orange.png',
-      shadowUrl: assetsPath + 'img/icons/misc/leaf-shadow.png',
+      iconUrl: assetsPath + '/img/icons/misc/leaf-orange.png',
+      shadowUrl: assetsPath + '/img/icons/misc/leaf-shadow.png',
       iconSize: [38, 95],
       shadowSize: [50, 64],
       iconAnchor: [22, 94],

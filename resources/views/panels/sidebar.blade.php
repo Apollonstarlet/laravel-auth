@@ -78,7 +78,7 @@
     <li class="menu-item">
       <a href="app-kanban.html" class="menu-link">
         <i class="menu-icon tf-icons mdi mdi-view-grid-outline"></i>
-        <div>Search Quotes</div>
+        <div>Dashboard</div>
       </a>
     </li>
     <li class="menu-item">
@@ -97,6 +97,12 @@
       <a href="app-email.html" class="menu-link">
         <i class="menu-icon tf-icons mdi mdi-account-outline"></i>
         <div>Users</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="app-email.html" class="menu-link">
+        <i class="menu-icon tf-icons mdi mdi-cog-outline"></i>
+        <div>Setting</div>
       </a>
     </li>
   </ul>

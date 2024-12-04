@@ -392,7 +392,7 @@
 
   if (dt_ecommerce.length) {
     dt_ecommerce = dt_ecommerce.DataTable({
-      ajax: assetsPath + 'json/table-dashboards.json',
+      ajax: assetsPath + '/json/table-dashboards.json',
       dom: 't',
       columns: [{ data: 'id' }, { data: 'name' }, { data: 'email' }, { data: 'role' }, { data: 'status' }],
       columnDefs: [
@@ -412,7 +412,7 @@
             if ($user_img) {
               // For Avatar image
               $output =
-                '<img src="' + assetsPath + 'img/avatars/' + $user_img + '" alt="Avatar" class="rounded-circle">';
+                '<img src="' + assetsPath + '/img/avatars/' + $user_img + '" alt="Avatar" class="rounded-circle">';
             }
             // Creates full output for row
             var $row_output =

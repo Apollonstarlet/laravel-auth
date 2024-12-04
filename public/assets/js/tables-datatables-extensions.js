@@ -15,7 +15,7 @@ $(function () {
 
   if (dt_scrollable_table.length) {
     var dt_scrollableTable = dt_scrollable_table.DataTable({
-      ajax: assetsPath + 'json/table-datatable.json',
+      ajax: assetsPath + '/json/table-datatable.json',
       columns: [
         { data: 'full_name' },
         { data: 'post' },
@@ -87,7 +87,7 @@ $(function () {
 
   if (dt_fixedheader_table.length) {
     var dt_fixedheader = dt_fixedheader_table.DataTable({
-      ajax: assetsPath + 'json/table-datatable.json',
+      ajax: assetsPath + '/json/table-datatable.json',
       columns: [
         { data: '' },
         { data: 'id' },
@@ -135,7 +135,7 @@ $(function () {
             if ($user_img) {
               // For Avatar image
               var $output =
-                '<img src="' + assetsPath + 'img/avatars/' + $user_img + '" alt="Avatar" class="rounded-circle">';
+                '<img src="' + assetsPath + '/img/avatars/' + $user_img + '" alt="Avatar" class="rounded-circle">';
             } else {
               // For Avatar badge
               var stateNum = Math.floor(Math.random() * 6);
@@ -273,7 +273,7 @@ $(function () {
 
   if (dt_fixedcolumns_table.length) {
     var dt_fixedcolumns = dt_fixedcolumns_table.DataTable({
-      ajax: assetsPath + 'json/table-datatable.json',
+      ajax: assetsPath + '/json/table-datatable.json',
       columns: [
         { data: 'full_name' },
         { data: 'post' },
@@ -349,7 +349,7 @@ $(function () {
 
   if (dt_select_table.length) {
     var dt_select = dt_select_table.DataTable({
-      ajax: assetsPath + 'json/table-datatable.json',
+      ajax: assetsPath + '/json/table-datatable.json',
       columns: [
         { data: 'id' },
         { data: 'full_name' },

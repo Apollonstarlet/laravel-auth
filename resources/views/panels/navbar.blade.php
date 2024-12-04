@@ -37,23 +37,20 @@
             <div class="dropdown-divider"></div>
           </li>
           <li>
-            <a class="dropdown-item" href="{{ route('logout') }}">
-              <i class="mdi mdi-account-outline me-2"></i>
-              <span class="align-middle">My Profile</span>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="{{ route('logout') }}">
+            <a class="dropdown-item" href="{{ route('setting') }}">
               <i class="mdi mdi-cog-outline me-2"></i>
               <span class="align-middle">Settings</span>
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="{{ route('logout') }} ">
+            <a class="dropdown-item" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
               <i class="mdi mdi-logout me-2"></i>
               <span class="align-middle">Log Out</span>
             </a>
           </li>
+          <form id="frm-logout" action="{{ route('logout') }}" method="POST">
+          @csrf
+          </form>
         </ul>
       </li>
       <!--/ User -->

@@ -13,7 +13,7 @@ $(function () {
   // --------------------------------------------------------------------
   if (dt_project_table.length) {
     var dt_project = dt_project_table.DataTable({
-      ajax: assetsPath + 'json/projects-list.json', // JSON file to add data
+      ajax: assetsPath + '/json/projects-list.json', // JSON file to add data
       columns: [
         // columns according to JSON
         { data: '' },
@@ -190,7 +190,7 @@ $(function () {
   // --------------------------------------------------------------------
   if (dt_invoice_table.length) {
     var dt_invoice = dt_invoice_table.DataTable({
-      ajax: assetsPath + 'json/invoice-list.json', // JSON file to add data
+      ajax: assetsPath + '/json/invoice-list.json', // JSON file to add data
       columns: [
         // columns according to JSON
         { data: '' },

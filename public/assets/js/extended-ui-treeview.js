@@ -408,7 +408,7 @@ $(function () {
           name: theme
         },
         data: {
-          url: assetsPath + 'json/jstree-data.json',
+          url: assetsPath + '/json/jstree-data.json',
           dataType: 'json',
           data: function (node) {
             return {
