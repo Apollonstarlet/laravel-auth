@@ -22,6 +22,7 @@ class PageController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->role = 'user';
+        $user->img = 'assets/img/avatars/1.png';
         $user->save();
         
         return redirect()->route('login')->with('sucess','Registration Sucessful!');

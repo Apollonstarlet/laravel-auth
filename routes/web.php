@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\QuotesController;
 /*
 |--------------------------------------------------------------------------
@@ -33,10 +34,12 @@ Route::post('signup', [PageController::class, 'Signup'])->name('signup');
 
 
                            // User panel 
-Route::get('home', [QuotesController::class, 'Home'])->name('user-home');
+Route::get('home', [QuotesController::class, 'Home'])->name('home');
 Route::get('quotes', [QuotesController::class, 'Quotes'])->name('quotes');
-Route::get('setting', [QuotesController::class, 'Setting'])->name('setting');
-Route::get('security', [QuotesController::class, 'Security'])->name('security');
+Route::get('setting', [UsersController::class, 'Setting'])->name('setting');
+Route::get('security', [UsersController::class, 'Security'])->name('security');
+Route::post('setting', [UsersController::class, 'Profile'])->name('profile');
+Route::post('set-pwd', [UsersController::class, 'SetPassword'])->name('set-pwd');
 
                            // Admin
 // Route::get('verifyPlaylist', [AdminController::class, 'Playlists']);

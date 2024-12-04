@@ -25,14 +25,4 @@ class QuotesController extends Controller
     {
         return view('user.quotes');
     }
-
-    public function Setting(Request $request)
-    {
-        return view('pages.setting');
-    }
-
-    public function Security(Request $request)
-    {
-        return view('pages.security');
-    }
 }

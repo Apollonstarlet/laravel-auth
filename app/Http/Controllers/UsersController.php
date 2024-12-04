@@ -13,21 +13,17 @@ class UsersController extends Controller
     {
         $this->middleware(['auth' => 'verified']);
     }
-    
+
     public function Setting(Request $request)
     {
-        // navbar large
-        $pageConfigs = ['navbarLarge' => false];
         $user = $request->user();
         $data = array();
-        
-        if($user->role == 'artist'){
-            $user = $request->user();
-            return view('/artist/setting', ['pageConfigs' => $pageConfigs])->with('data', $data);
-        } else{
-            $user = $request->user();
-            return view('/admin/setting', ['pageConfigs' => $pageConfigs])->with('data', $data);
-        }
+        return view('pages.setting')->with('data', $data);
+    }
+
+    public function Security(Request $request)
+    {
+        return view('pages.security');
     }
     
     public function Profile(Request $request)
@@ -35,13 +31,15 @@ class UsersController extends Controller
         $user = User::where('email', $request->user()->email)->first();
         $user->firstname = $request->firstname;
         $user->lastname = $request->lastname;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
 
         if ($request->hasFile('image') && $request->file('image')->isValid()){
             $file = $request->file('image');
             $filename = date("Y-m-d-h-m").'-'.$user->firstname.'.'. str_replace('jpg', 'jpg', $request->file('image')->guessExtension());
             
-            $file->move("images/user/",$filename);
-            $user->img = 'images/user/'. $filename;
+            $file->move("assets/img/user/",$filename);
+            $user->img = 'assets/img/user/'. $filename;
         }
 
         $user->save();

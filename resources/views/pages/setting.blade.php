@@ -40,73 +40,56 @@
         <div class="card mb-4">
         <h4 class="card-header">Profile Details</h4>
         <!-- Account -->
-        <div class="card-body">
+        <div class="card-body pt-2 mt-1">
+            <form action="{{ route('profile') }}" enctype="multipart/form-data" method="POST" >
+            @csrf
             <div class="d-flex align-items-start align-items-sm-center gap-4">
-            <img
-                src="{{asset('assets/img/avatars/1.png')}}"
-                alt="user-avatar"
-                class="d-block w-px-120 h-px-120 rounded"
-                id="uploadedAvatar" />
+            <img src="{{asset($user->img)}}" alt="user-avatar" class="d-block w-px-120 h-px-120 rounded" id="profile-avatar" />
             <div class="button-wrapper">
                 <label for="upload" class="btn btn-primary me-2 mb-3" tabindex="0">
-                <span class="d-none d-sm-block">Upload new photo</span>
+                <a id="select-avatar" class="d-none d-sm-block">Upload new photo</a>
                 <i class="mdi mdi-tray-arrow-up d-block d-sm-none"></i>
-                <input type="file" id="upload" class="account-file-input" hidden accept="image/png, image/jpeg" />
+                <input type="file" id="upload" class="account-file-input" style="display: none;" accept="image/png, image/jpeg" name="image" onchange="loadFile(event)"/>
                 </label>
-                <button type="button" class="btn btn-outline-secondary account-image-reset mb-3">
-                <i class="mdi mdi-reload d-block d-sm-none"></i>
-                <span class="d-none d-sm-block">Reset</span>
-                </button>
-
                 <div class="text-muted small">Allowed JPG, GIF or PNG. Max size of 800K</div>
             </div>
             </div>
-        </div>
-        <div class="card-body pt-2 mt-1">
-            <form id="formAccountSettings" method="POST" onsubmit="return false">
             <div class="row mt-2 gy-4">
-                <div class="col-md-6">
-                <div class="form-floating form-floating-outline">
-                    <input class="form-control" type="text" id="firstName" name="firstName" value="John" autofocus />
-                    <label for="firstName">First Name</label>
-                </div>
-                </div>
-                <div class="col-md-6">
-                <div class="form-floating form-floating-outline">
-                    <input class="form-control" type="text" name="lastName" id="lastName" value="Doe" />
-                    <label for="lastName">Last Name</label>
-                </div>
-                </div>
-                <div class="col-md-6">
-                <div class="form-floating form-floating-outline">
-                    <input class="form-control" type="text" id="email" name="email" value="john.doe@example.com" placeholder="john.doe@example.com" />
-                    <label for="email">E-mail</label>
-                </div>
-                </div>
-                <div class="col-md-6">
-                <div class="input-group input-group-merge">
+                <div class="col-md-4">
                     <div class="form-floating form-floating-outline">
-                    <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="202 555 0111" />
-                    <label for="phoneNumber">Phone Number</label>
+                        <input class="form-control" type="text" id="firstName" name="firstname" value="{{$user->firstname}}" autofocus />
+                        <label for="firstName">First Name</label>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="form-floating form-floating-outline">
+                        <input class="form-control" type="text" name="lastname" id="lastName" value="{{$user->lastname}}" />
+                        <label for="lastName">Last Name</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group input-group-merge">
+                        <div class="form-floating form-floating-outline">
+                        <input type="text" id="phoneNumber" name="phone" class="form-control" @if(isset($user->phone)) value="{{$user->phone}}" @else placeholder="202 555 0111" @endif />
+                        <label for="phoneNumber">Phone Number</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-12">
-                <div class="form-floating form-floating-outline">
-                    <input type="text" class="form-control" id="address" name="address" placeholder="Address" />
-                    <label for="address">Address</label>
-                </div>
+                    <div class="form-floating form-floating-outline">
+                        <input type="text" class="form-control" id="address" name="address" @if(isset($user->address)) value="{{$user->address}}" @else placeholder="address" @endif />
+                        <label for="address">Address</label>
+                    </div>
                 </div>
             </div>
             <div class="mt-4">
                 <button type="submit" class="btn btn-primary me-2">Save changes</button>
-                <button type="reset" class="btn btn-outline-secondary">Cancel</button>
             </div>
             </form>
         </div>
         <!-- /Account -->
         </div>
-        <div class="card">
+        <!-- <div class="card">
         <h5 class="card-header">Delete Account</h5>
         <div class="card-body">
             <div class="mb-3 col-12 mb-0">
@@ -129,7 +112,7 @@
             <button type="submit" class="btn btn-danger deactivate-account">Deactivate Account</button>
             </form>
         </div>
-        </div>
+        </div> -->
     </div>
     </div>
 </div>
@@ -151,4 +134,17 @@
 {{-- page scripts --}}
 @section('page-script')
 <script src="{{asset('assets/js/pages-account-settings-security.js')}}"></script>
+<script>
+  var loadFile = function(event) {
+    var image = document.getElementById('profile-avatar');
+    image.src = URL.createObjectURL(event.target.files[0]);
+  };
+
+  $(document).ready(function () {
+    // upload button converting into file button
+    $("a#select-avatar").on("click", function () {
+      $("#upfile").click();
+    })
+  });
+</script>
 @endsection
