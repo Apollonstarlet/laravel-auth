@@ -27,8 +27,16 @@
                   </div>
                 </div>
                 <div class="flex-grow-1">
-                  <span class="fw-semibold d-block">John Doe</span>
-                  <small class="text-muted">Admin</small>
+                  <span class="fw-semibold d-block">
+                  @if(isset($user)) {{ $user->firstname}} {{ $user->lastname}} @endif
+                  </span>
+                  <small class="text-muted">
+                  @if($user->role != 'user')
+                    Admin
+                  @else
+                    User
+                  @endif  
+                  </small>
                 </div>
               </div>
             </a>

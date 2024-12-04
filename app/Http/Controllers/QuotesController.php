@@ -20,6 +20,11 @@ class QuotesController extends Controller
     {
         return view('user.user-home');
     }
+    
+    public function Quotes(Request $request)
+    {
+        return view('user.quotes');
+    }
 
     public function Setting(Request $request)
     {

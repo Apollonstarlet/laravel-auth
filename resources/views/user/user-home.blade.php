@@ -9,259 +9,84 @@
 <link rel="stylesheet" href="{{asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')}}" />
 <link rel="stylesheet" href="{{asset('assets/vendor/libs/node-waves/node-waves.css')}}" />
 <link rel="stylesheet" href="{{asset('assets/vendor/libs/typeahead-js/typeahead.css')}}" />
-<link rel="stylesheet" href="{{asset('assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css')}}" />
-<link rel="stylesheet" href="{{asset('assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css')}}" />
-<link rel="stylesheet" href="{{asset('assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css')}}" />
-<link rel="stylesheet" href="{{asset('assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css')}}" />
-<link rel="stylesheet" href="{{asset('assets/vendor/libs/select2/select2.css')}}" />
-<link rel="stylesheet" href="{{asset('assets/vendor/libs/formvalidation/dist/css/formValidation.min.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/vendor/libs/apex-charts/apex-charts.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/vendor/libs/swiper/swiper.css')}}" />
 @endsection
 
 {{-- page style --}}
 @section('page-style')
 <!-- Page CSS -->
+<link rel="stylesheet" href="{{asset('assets/vendor/css/pages/cards-statistics.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/vendor/css/pages/cards-analytics.css')}}" />
 @endsection
 
 {{-- page content --}}
 @section('content')
 <!-- Content -->
+
 <div class="container-xxl flex-grow-1 container-p-y">
-  <!-- Bootstrap Table with Header - Light -->
-  <div class="card">
-    <h5 class="card-header">Quotes</h5>
-    <div class="table-responsive text-nowrap">
-      <table class="table">
-        <thead class="table-light">
-          <tr>
-            <th>REF NO</th>
-            <th>ID</th>
-            <th>PART</th>
-            <th>MAKE</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody class="table-border-bottom-0">
-          <tr>
-            <td>
-              <i class="mdi mdi-wallet-travel mdi-20px text-danger me-3"></i> <strong>Tours Project</strong>
-            </td>
-            <td>Albert Cook</td>
-            <td>
-              <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                <li
-                  data-bs-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-bs-placement="top"
-                  class="avatar avatar-xs pull-up"
-                  title="Lilian Fuller">
-                  <img src="../../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                </li>
-                <li
-                  data-bs-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-bs-placement="top"
-                  class="avatar avatar-xs pull-up"
-                  title="Sophia Wilkerson">
-                  <img src="../../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                </li>
-                <li
-                  data-bs-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-bs-placement="top"
-                  class="avatar avatar-xs pull-up"
-                  title="Christina Parker">
-                  <img src="../../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                </li>
-              </ul>
-            </td>
-            <td><span class="badge bg-label-primary me-1">Active</span></td>
-            <td>
-              <div class="dropdown">
-                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                  <i class="mdi mdi-dots-vertical"></i>
-                </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="javascript:void(0);"
-                    ><i class="mdi mdi-pencil-outline me-1"></i> Edit</a
-                  >
-                  <a class="dropdown-item" href="javascript:void(0);"
-                    ><i class="mdi mdi-trash-can-outline me-1"></i> Delete</a
-                  >
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <i class="mdi mdi-basketball mdi-20px text-info me-3"></i> <strong>Sports Project</strong>
-            </td>
-            <td>Barry Hunter</td>
-            <td>
-              <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                <li
-                  data-bs-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-bs-placement="top"
-                  class="avatar avatar-xs pull-up"
-                  title="Lilian Fuller">
-                  <img src="../../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                </li>
-                <li
-                  data-bs-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-bs-placement="top"
-                  class="avatar avatar-xs pull-up"
-                  title="Sophia Wilkerson">
-                  <img src="../../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                </li>
-                <li
-                  data-bs-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-bs-placement="top"
-                  class="avatar avatar-xs pull-up"
-                  title="Christina Parker">
-                  <img src="../../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                </li>
-              </ul>
-            </td>
-            <td><span class="badge bg-label-success me-1">Completed</span></td>
-            <td>
-              <div class="dropdown">
-                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                  <i class="mdi mdi-dots-vertical"></i>
-                </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="javascript:void(0);"
-                    ><i class="mdi mdi-pencil-outline me-1"></i> Edit</a
-                  >
-                  <a class="dropdown-item" href="javascript:void(0);"
-                    ><i class="mdi mdi-trash-can-outline me-1"></i> Delete</a
-                  >
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <i class="mdi mdi-greenhouse mdi-20px text-success me-3"></i>
-              <strong>Greenhouse Project</strong>
-            </td>
-            <td>Trevor Baker</td>
-            <td>
-              <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                <li
-                  data-bs-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-bs-placement="top"
-                  class="avatar avatar-xs pull-up"
-                  title="Lilian Fuller">
-                  <img src="../../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                </li>
-                <li
-                  data-bs-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-bs-placement="top"
-                  class="avatar avatar-xs pull-up"
-                  title="Sophia Wilkerson">
-                  <img src="../../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                </li>
-                <li
-                  data-bs-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-bs-placement="top"
-                  class="avatar avatar-xs pull-up"
-                  title="Christina Parker">
-                  <img src="../../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                </li>
-              </ul>
-            </td>
-            <td><span class="badge bg-label-info me-1">Scheduled</span></td>
-            <td>
-              <div class="dropdown">
-                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                  <i class="mdi mdi-dots-vertical"></i>
-                </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="javascript:void(0);"
-                    ><i class="mdi mdi-pencil-outline me-1"></i> Edit</a
-                  >
-                  <a class="dropdown-item" href="javascript:void(0);"
-                    ><i class="mdi mdi-trash-can-outline me-1"></i> Delete</a
-                  >
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><i class="mdi mdi-bank mdi-20px text-primary me-3"></i> <strong>Bank Project</strong></td>
-            <td>Jerry Milton</td>
-            <td>
-              <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                <li
-                  data-bs-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-bs-placement="top"
-                  class="avatar avatar-xs pull-up"
-                  title="Lilian Fuller">
-                  <img src="../../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                </li>
-                <li
-                  data-bs-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-bs-placement="top"
-                  class="avatar avatar-xs pull-up"
-                  title="Sophia Wilkerson">
-                  <img src="../../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                </li>
-                <li
-                  data-bs-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-bs-placement="top"
-                  class="avatar avatar-xs pull-up"
-                  title="Christina Parker">
-                  <img src="../../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                </li>
-              </ul>
-            </td>
-            <td><span class="badge bg-label-warning me-1">Pending</span></td>
-            <td>
-              <div class="dropdown">
-                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                  <i class="mdi mdi-dots-vertical"></i>
-                </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="javascript:void(0);"
-                    ><i class="mdi mdi-pencil-outline me-1"></i> Edit</a
-                  >
-                  <a class="dropdown-item" href="javascript:void(0);"
-                    ><i class="mdi mdi-trash-can-outline me-1"></i> Delete</a
-                  >
-                </div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+  <div class="row gy-4">
+    <!-- Gamification Card -->
+    <div class="col-md-12 col-lg-8">
+      <div class="card">
+        <div class="d-flex align-items-end row">
+          <div class="col-md-6 order-2 order-md-1">
+            <div class="card-body">
+              <h4 class="card-title pb-xl-2">Congratulations <strong> {{$user->firstname}}!</strong>🎉</h4>
+              
+              <p>Check your new badge in your profile.</p>
+              <a href="{{asset('setting')}}" class="btn btn-primary">View Profile</a>
+            </div>
+          </div>
+          <div class="col-md-6 text-center text-md-end order-1 order-md-2">
+            <div class="card-body pb-0 px-0 px-md-4 ps-0">
+              <img
+                src="{{asset('assets/img/illustrations/illustration-john-light.png')}}"
+                height="180"
+                alt="View Profile"
+                data-app-light-img="illustrations/illustration-john-light.png"
+                data-app-dark-img="illustrations/illustration-john-dark.png" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <!--/ Gamification Card -->
+
+    <!-- Statistics Total Order -->
+    <div class="col-lg-4 col-sm-6">
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+            <div class="avatar">
+              <div class="avatar-initial bg-label-primary rounded">
+                <i class="mdi mdi-cart-plus mdi-24px"></i>
+              </div>
+            </div>
+            <div class="d-flex align-items-center">
+              <p class="mb-0 text-success me-1">0%</p>
+              <i class="mdi mdi-chevron-up text-success"></i>
+            </div>
+          </div>
+          <div class="card-info mt-4 pt-1 mt-lg-1 mt-xl-4">
+            <h5 class="mb-2">0</h5>
+            <p class="text-muted mb-lg-2 mb-xl-3">Total Orders</p>
+            <div class="badge bg-label-secondary rounded-pill">Last 4 Month</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Statistics Total Order -->
   </div>
-  <!-- Bootstrap Table with Header - Light -->
 </div>
 <!-- / Content -->
 @endsection
 
 {{-- vendor scripts --}}
 @section('vendor-script')
-<script src="{{asset('assets/vendor/libs/moment/moment.js')}}"></script>
-<script src="{{asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js')}}"></script>
-<script src="{{asset('assets/vendor/libs/select2/select2.js')}}"></script>
-<script src="{{asset('assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js')}}"></script>
-<script src="{{asset('assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js')}}"></script>
-<script src="{{asset('assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js')}}"></script>
-<script src="{{asset('assets/vendor/libs/cleavejs/cleave.js')}}"></script>
-<script src="{{asset('assets/vendor/libs/cleavejs/cleave-phone.js')}}"></script>
 @endsection
 
 {{-- page scripts --}}
 @section('page-script')
-
+<script src="{{asset('assets/js/dashboards-analytics.js')}}"></script>
 @endsection

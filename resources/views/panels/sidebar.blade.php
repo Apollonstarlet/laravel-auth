@@ -75,32 +75,28 @@
   <div class="menu-inner-shadow"></div>
 
   <ul class="menu-inner py-1">
-    <li class="menu-item">
-      <a href="app-kanban.html" class="menu-link">
+    <li class="menu-item {{(request()->is('home')) ? 'active' : '' }}">
+      <a href="{{asset('home')}}" class="menu-link">
         <i class="menu-icon tf-icons mdi mdi-view-grid-outline"></i>
         <div>Dashboard</div>
       </a>
     </li>
-    <li class="menu-item">
-      <a href="app-chat.html" class="menu-link">
+    <li class="menu-item {{(request()->is('quotes')) ? 'active' : '' }}">
+      <a href="{{asset('quotes')}}" class="menu-link">
         <i class="menu-icon tf-icons mdi mdi-file-document-outline"></i>
         <div>Quotes</div>
       </a>
     </li>
-    <li class="menu-item">
-      <a href="app-calendar.html" class="menu-link">
-        <i class="menu-icon tf-icons mdi mdi-credit-card-outline"></i>
-        <div>Auto Quotes</div>
-      </a>
-    </li>
-    <li class="menu-item">
+    @if($user->role == 'admin')
+    <li class="menu-item {{(request()->is('users')) ? 'active' : '' }}">
       <a href="app-email.html" class="menu-link">
         <i class="menu-icon tf-icons mdi mdi-account-outline"></i>
         <div>Users</div>
       </a>
     </li>
-    <li class="menu-item">
-      <a href="app-email.html" class="menu-link">
+    @endif
+    <li class="menu-item {{(request()->is('setting')) ? 'active' : '' }}">
+      <a href="{{asset('setting')}}" class="menu-link">
         <i class="menu-icon tf-icons mdi mdi-cog-outline"></i>
         <div>Setting</div>
       </a>
