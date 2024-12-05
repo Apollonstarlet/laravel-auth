@@ -6,6 +6,9 @@
 
 {{-- vendor styles --}}
 @section('vendor-style')
+<link rel="stylesheet" href="{{asset('assets/vendor/css/rtl/core.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/vendor/css/rtl/theme-default.css')}}"/>
+
 <link rel="stylesheet" href="{{asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')}}" />
 <link rel="stylesheet" href="{{asset('assets/vendor/libs/node-waves/node-waves.css')}}" />
 <link rel="stylesheet" href="{{asset('assets/vendor/libs/typeahead-js/typeahead.css')}}" />
@@ -43,6 +46,7 @@
         <div class="card-body pt-2 mt-1">
             <form action="{{ route('profile') }}" enctype="multipart/form-data" method="POST" >
             @csrf
+            <input type="hidden" name="id" value="{{ $user->id }}"/>
             <div class="d-flex align-items-start align-items-sm-center gap-4">
             <img src="{{asset($user->img)}}" alt="user-avatar" class="d-block w-px-120 h-px-120 rounded" id="profile-avatar" />
             <div class="button-wrapper">

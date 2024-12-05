@@ -6,6 +6,9 @@
 
 {{-- vendor styles --}}
 @section('vendor-style')
+<link rel="stylesheet" href="{{asset('assets/vendor/css/rtl/core.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/vendor/css/rtl/theme-default.css')}}"/>
+
 <link rel="stylesheet" href="{{asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')}}" />
 <link rel="stylesheet" href="{{asset('assets/vendor/libs/node-waves/node-waves.css')}}" />
 <link rel="stylesheet" href="{{asset('assets/vendor/libs/typeahead-js/typeahead.css')}}" />

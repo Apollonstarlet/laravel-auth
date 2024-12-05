@@ -19,7 +19,7 @@ use App\Http\Controllers\QuotesController;
 */
 
 Auth::routes();
-
+Route::get('email/verify', [PageController::class, 'LandingPage'])->name('verification.notice');
 // locale route
 Route::get('lang/{locale}', [LanguageController::class, 'swap']);
 Route::get('fresh', function() { Artisan::call('migrate:fresh'); return back();});
@@ -36,10 +36,12 @@ Route::post('signup', [PageController::class, 'Signup'])->name('signup');
                            // User panel 
 Route::get('home', [QuotesController::class, 'Home'])->name('home');
 Route::get('quotes', [QuotesController::class, 'Quotes'])->name('quotes');
+Route::get('users', [UsersController::class, 'Users'])->name('users');
 Route::get('setting', [UsersController::class, 'Setting'])->name('setting');
 Route::get('security', [UsersController::class, 'Security'])->name('security');
 Route::post('setting', [UsersController::class, 'Profile'])->name('profile');
 Route::post('set-pwd', [UsersController::class, 'SetPassword'])->name('set-pwd');
+Route::post('user-del', [UsersController::class, 'UserDel'])->name('userDel');
 
                            // Admin
 // Route::get('verifyPlaylist', [AdminController::class, 'Playlists']);

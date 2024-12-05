@@ -89,7 +89,7 @@
     </li>
     @if($user->role == 'admin')
     <li class="menu-item {{(request()->is('users')) ? 'active' : '' }}">
-      <a href="app-email.html" class="menu-link">
+      <a href="{{asset('users')}}" class="menu-link">
         <i class="menu-icon tf-icons mdi mdi-account-outline"></i>
         <div>Users</div>
       </a>

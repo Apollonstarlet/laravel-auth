@@ -6,6 +6,9 @@
 
 {{-- vendor styles --}}
 @section('vendor-style')
+<link rel="stylesheet" href="{{asset('assets/vendor/css/rtl/core.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/vendor/css/rtl/theme-default.css')}}"/>
+
 <link rel="stylesheet" href="{{asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')}}" />
 <link rel="stylesheet" href="{{asset('assets/vendor/libs/node-waves/node-waves.css')}}" />
 <link rel="stylesheet" href="{{asset('assets/vendor/libs/typeahead-js/typeahead.css')}}" />
@@ -46,14 +49,15 @@
                   <div class="card mb-4">
                     <h5 class="card-header">Change Password</h5>
                     <div class="card-body">
-                      <form id="formAccountSettings" method="POST" onsubmit="return false">
+                      <form action="{{ route('set-pwd')" method="POST">
+                      @csrf
                         <div class="row">
                           <div class="mb-3 col-md-6 form-password-toggle">
                             <div class="input-group input-group-merge">
                               <div class="form-floating form-floating-outline">
-                                <input class="form-control" type="password" name="currentPassword" id="currentPassword"
+                                <input class="form-control" type="password" name="oldpwd" id="currentPassword"
                                   placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
-                                <label for="currentPassword">Current Password</label>
+                                <label for="oldpwd">Current Password</label>
                               </div>
                               <span class="input-group-text cursor-pointer"><i class="mdi mdi-eye-off-outline"></i></span>
                             </div>
@@ -63,9 +67,9 @@
                           <div class="mb-4 col-md-6 form-password-toggle">
                             <div class="input-group input-group-merge">
                               <div class="form-floating form-floating-outline">
-                                <input class="form-control" type="password" id="newPassword" name="newPassword"
+                                <input class="form-control" type="password" id="newPassword" name="newpwd"
                                   placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
-                                <label for="newPassword">New Password</label>
+                                <label for="newpwd">New Password</label>
                               </div>
                               <span class="input-group-text cursor-pointer" ><i class="mdi mdi-eye-off-outline"></i></span>
                             </div>
@@ -73,9 +77,9 @@
                           <div class="mb-4 col-md-6 form-password-toggle">
                             <div class="input-group input-group-merge">
                               <div class="form-floating form-floating-outline">
-                                <input class="form-control" type="password" name="confirmPassword" id="confirmPassword"
+                                <input class="form-control" type="password" name="repwd" id="confirmPassword"
                                   placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
-                                <label for="confirmPassword">Confirm New Password</label>
+                                <label for="repwd">Confirm New Password</label>
                               </div>
                               <span class="input-group-text cursor-pointer" ><i class="mdi mdi-eye-off-outline"></i></span>
                             </div>
@@ -89,7 +93,6 @@
                         </ul>
                         <div class="mt-4">
                           <button type="submit" class="btn btn-primary me-2">Save changes</button>
-                          <button type="reset" class="btn btn-outline-secondary">Cancel</button>
                         </div>
                       </form>
                     </div>
