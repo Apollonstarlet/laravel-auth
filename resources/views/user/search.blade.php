@@ -7,6 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{asset('assets/img/favicon/favicon.ico')}}" />
@@ -30,6 +31,14 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <style type="text/css">
+        .w-px-215 {
+            width: 215px !important;
+        } 
+        .h-px-302 {
+            height: 302px !important;
+        } 
+    </style>
 </head>
 
 <body>
@@ -91,8 +100,8 @@
                         <h1 class="display-3 text-white mb-3 animated slideInDown">Pokemon Card Grading</h1>
                         <p class="fs-4 text-white mb-4 animated slideInDown">The US's Specialist Card Grading Service</p>
                         <div class="position-relative w-75 mx-auto animated slideInDown">
-                            <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Eg: 2457">
-                            <button type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" style="margin-top: 7px;">Search</button>
+                            <input id="cert" class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Eg: 2457">
+                            <button type="button" id="search" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" style="margin-top: 7px;">Search</button>
                         </div>
                     </div>
                 </div>
@@ -103,8 +112,100 @@
 
     <!-- Service Start -->
     <div class="container-xxl py-5">
-	<div id="result" class="container" style="display: none;">
-	</div>
+        <div id="loading" class="container" style="text-align: center; display: none;">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div id="result" class="container" style="display: none;">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <img src="{{asset('assets/img/pokemon.png')}}" alt="card_img" class="w-px-215 h-px-302" id="card_img" />
+                </div>
+                <div class="col-lg-9 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="row g-4">
+                        <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="service-item rounded pt-2">
+                                <div class="p-3">
+                                    <h5 id="cardname">Shining Gyarados #65</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="service-item rounded pt-2">
+                                <div class="p-3">
+                                    <h5>SERIAL</h5>
+                                    <p id="serial">2457</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="service-item rounded pt-2">
+                                <div class="p-3">
+                                    <h5>YEAR</h5>
+                                    <p id="year">2001</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="service-item rounded pt-2">
+                                <div class="p-3">
+                                    <h5>LANGUAGE</h5>
+                                    <p id="lan">English</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="service-item rounded pt-2">
+                                <div class="p-3">
+                                    <h5>VARIANT</h5>
+                                    <p id="variant">Rara</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                            <div class="service-item rounded pt-2">
+                                <div class="p-3">
+                                    <h5>FRONT</h5>
+                                    <p id="front">9</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                            <div class="service-item rounded pt-2">
+                                <div class="p-3">
+                                    <h5>SIDES/CORNERS</h5>
+                                    <p id="sides">8</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                            <div class="service-item rounded pt-2">
+                                <div class="p-3">
+                                    <h5>BACK</h5>
+                                    <p id="back">9</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                            <div class="service-item rounded pt-2">
+                                <div class="p-3">
+                                    <h5>CENTRING</h5>
+                                    <p id="centring">8</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.9s">
+                            <div class="service-item rounded pt-2">
+                                <div class="p-3">
+                                    <h5 id="overall">OVERALL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="service" class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
@@ -153,7 +254,7 @@
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                         <div class="footer-menu">
-                            <a href="">Home</a>
+                            <a href="/">Home</a>
                             <a href="">Cookies</a>
                             <a href="">Help</a>
                             <a href="">FQAs</a>
@@ -183,6 +284,57 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+        "use strict";
+            var main, currenturl = window.location.href,
+                url_array = currenturl.split('/'),
+                url = url_array[0] + '//' + url_array[2];
+
+            $("input#cert").on('keyup', function (e) {
+                if (e.key === 'Enter' || e.keyCode === 13) {
+                    search();
+                }
+            });
+            $("button#search").click(function(){
+                search();
+            });
+            function search() {
+                var cert = $("input#cert").val();
+                $('div#loading').css("display", "");
+                $('div#service').css("display", "none");
+                $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }});
+                $.ajax({ url:url+"/search", data:{ serial: cert }, type:'post',
+                success: function(result){
+                    console.log(result['card']);
+                    if(result['isset'] == "yes"){
+                        $('div#loading').css("display", "none");
+                        $("div#result").css("display", "");
+                        $("img#card_img").attr("src", result['card'][0]['img']);
+                        $('h5#cardname').html(result['card'][0]['cardname']);
+                        $('p#serial').html(result['card'][0]['serial']);
+                        $('p#year').html(result['card'][0]['yea']);
+                        $('p#lan').html(result['card'][0]['lan']);
+                        $('p#variant').html(result['card'][0]['variant']);
+                        $('p#front').html(result['card'][0]['front']);
+                        $('p#sides').html(result['card'][0]['sidescorners']);
+                        $('p#back').html(result['card'][0]['back']);
+                        $('p#centring').html(result['card'][0]['centring']);
+                        $('h5#overall').html("OVERALL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+ result['card'][0]['overall']);
+                    } else{
+                        var text = "<h5>No Data! Please try again with Other value.</h5><div style='height: 12vh;'></div>";
+                        $("div#result").css("display", "none");
+                        $('div#service').css("display", "none");
+                        $('div#loading').html(text);
+                    } 
+                },
+                error: function(result){
+                    console.log(result);
+                }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

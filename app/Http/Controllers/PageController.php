@@ -22,9 +22,14 @@ class PageController extends Controller
 
     public function Search(Request $request)
     {
-        $card = PokemonCard::where('serial', $request->serial)->get();
-    
-        return $card;
+        $data = array();
+        $data['card'] = PokemonCard::where('serial', $request->serial)->get();
+        if(isset($data['card'][0]->cardname)){
+            $data['isset'] = "yes";
+        } else{
+            $data['isset'] = "no";
+        }
+        return $data;
     }
 
     public function AddPage()
