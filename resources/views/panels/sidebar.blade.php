@@ -78,7 +78,13 @@
     <li class="menu-item {{(request()->is('home')) ? 'active' : '' }}">
       <a href="{{asset('home')}}" class="menu-link">
         <i class="menu-icon tf-icons mdi mdi-view-grid-outline"></i>
-        <div>Dashboard</div>
+        <div>Add Card</div>
+      </a>
+    </li>
+    <li class="menu-item {{(request()->is('cards')) ? 'active' : '' }}">
+      <a href="{{asset('cards')}}" class="menu-link">
+        <i class="menu-icon tf-icons mdi mdi-file-document-outline"></i>
+        <div>Cards</div>
       </a>
     </li>
     <li class="menu-item {{(request()->is('quotes')) ? 'active' : '' }}">

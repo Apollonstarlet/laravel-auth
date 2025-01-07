@@ -16,7 +16,7 @@
       <a href="{{asset('/')}}" class="auth-cover-brand d-flex align-items-center gap-2">
         <span class="app-brand-logo demo">
         </span>
-        <span class="app-brand-text demo text-heading fw-bold">Mopart</span>
+        <span class="app-brand-text demo text-heading fw-bold">PCG</span>
       </a>
       <!-- /Logo -->
       <div class="authentication-inner row m-0">
@@ -41,7 +41,7 @@
         <div
           class="d-flex col-12 col-lg-5 col-xl-4 align-items-center authentication-bg position-relative py-sm-5 px-4 py-4">
           <div class="w-px-400 mx-auto pt-5 pt-lg-0">
-            <h4 class="mb-2 fw-semibold">Welcome to Mopart! 👋</h4>
+            <h4 class="mb-2 fw-semibold">Welcome to PCG! 👋</h4>
             <p class="mb-4">Please sign-in to your account.</p>
 
             <form id="formAuthentication" class="mb-3" action="{{ route('login') }}" method="POST">
@@ -75,8 +75,8 @@
 
             <p class="text-center mt-2">
               <span>New on our platform?</span>
-              <a href="{{asset('register')}}">
-                <span>Create an account</span>
+              <a href="/">
+                <span>Home Page</span>
               </a>
             </p>
           </div>

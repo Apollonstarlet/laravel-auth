@@ -16,7 +16,7 @@
       <a href="{{asset('/')}}" class="auth-cover-brand d-flex align-items-center gap-2">
         <span class="app-brand-logo demo">
         </span>
-        <span class="app-brand-text demo text-heading fw-bold">Mopart</span>
+        <span class="app-brand-text demo text-heading fw-bold">PCG</span>
       </a>
       <!-- /Logo -->
       <div class="authentication-inner row m-0">

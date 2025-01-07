@@ -210,6 +210,8 @@
                 <div class="dropdown-menu">
                   <a class="dropdown-item" href="javascript:void(0);"
                     ><i class="mdi mdi-pencil-outline me-1"></i> Edit</a>
+                  <a class="dropdown-item" href="javascript:void(0);"
+                    ><i class="mdi mdi-pencil-outline me-1"></i> Edit</a>
                 </div>
               </div>
             </td>

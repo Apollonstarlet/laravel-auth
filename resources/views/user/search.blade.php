@@ -88,9 +88,9 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     <a href="cert" class="nav-item nav-link active">Search</a>
-                    <a href="addpage" class="nav-item nav-link">Add Card</a>
                 </div>
             </div>
+            <a href="login" class="btn btn-primary rounded-pill py-2 px-4">Login</a>
         </nav>
 
         <div class="container-fluid bg-primary mb-5 hero-header">
@@ -214,28 +214,31 @@
             <div class="row g-4">
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item rounded pt-3">
-                        <div class="p-4">
+                        <div class="p-4 text-center">
                             <i class="fa fa-3x fa-globe text-primary mb-4"></i>
                             <h5>Submit a Card</h5>
                             <p>Submit your sports cards and collectibles today! Learn how our process works and download our submission form.</p>
+                            <a class="btn btn-primary py-2 px-3 mt-2" href="">Click here</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item rounded pt-3">
-                        <div class="p-4">
+                        <div class="p-4 text-center">
                             <i class="fa fa-3x fa-hotel text-primary mb-4"></i>
                             <h5>Collectors Blog</h5>
                             <p>Visit our Collector's Blog for the latest hobby news & detailed information on how to spot counterfeit items.</p>
+                            <a class="btn btn-primary py-2 px-3 mt-2" href="">Click here</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item rounded pt-3">
-                        <div class="p-4">
+                        <div class="p-4 text-center">
                             <i class="fa fa-3x fa-user text-primary mb-4"></i>
                             <h5>Grading Scale</h5>
                             <p>Preserve your collection with the world-leading authentication service with great eye appeal and protection.</p>
+                            <a class="btn btn-primary py-2 px-3 mt-2" href="">Click here</a>
                         </div>
                     </div>
                 </div>
@@ -317,7 +320,7 @@
                         $('p#lan').html(result['card'][0]['lan']);
                         $('p#variant').html(result['card'][0]['variant']);
                         $('p#front').html(result['card'][0]['front']);
-                        $('p#sides').html(result['card'][0]['sidescorners']);
+                        $('p#sides').html(result['card'][0]['sidecorners']);
                         $('p#back').html(result['card'][0]['back']);
                         $('p#centring').html(result['card'][0]['centring']);
                         $('h5#overall').html("OVERALL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+ result['card'][0]['overall']);

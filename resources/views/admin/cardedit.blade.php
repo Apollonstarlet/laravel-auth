@@ -2,7 +2,7 @@
 @extends('layouts.contentLayoutMaster')
 
 {{-- page title --}}
-@section('title','Add Card')
+@section('title','Update Card')
 
 {{-- vendor styles --}}
 @section('vendor-style')
@@ -43,35 +43,36 @@
         <div class="card mb-4">
         <!-- Pokemon Card -->
         <div class="card-body pt-2 mt-1">
-            <form class="browser-default-validation" action="{{ route('add') }}" enctype="multipart/form-data" method="POST" >
+            <form class="browser-default-validation" action="{{ route('card-update') }}" enctype="multipart/form-data" method="POST" >
             @csrf
+            <input type="hidden" name="id" value="{{$data['card']->id}}" />
             <div class="row mt-2 gy-4">
                 <div class="d-flex align-items-start align-items-sm-center gap-4">
-                    <img src="{{asset('assets/img/upload.png')}}" alt="card_img" class="d-block w-px-215 h-px-302 rounded" id="card_img" />
+                    <img src="{{$data['card']->img}}" alt="card_img" class="d-block w-px-215 h-px-302 rounded" id="card_img" />
                     <div class="button-wrapper">
                         <label for="upload" class="btn btn-primary me-2 mb-3" tabindex="0">
                         <a id="select-avatar" class="d-none d-sm-block">Upload new photo</a>
                         <i class="mdi mdi-tray-arrow-up d-block d-sm-none"></i>
-                        <input type="file" id="upload" class="account-file-input" style="display: none;" accept="image/png, image/jpeg" name="image" onchange="loadFile(event)" />
+                        <input type="file" id="upload" class="account-file-input" style="display: none;" accept="image/png, image/jpeg" name="image" value="{{$data['card']->img}}" onchange="loadFile(event)" />
                         </label>
                         <div class="text-muted small">Allowed JPG, GIF or PNG. Max size of 800K</div>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-floating form-floating-outline">
-                        <input class="form-control" type="text" id="cardname" name="cardname" autofocus required />
+                        <input class="form-control" type="text" id="cardname" name="cardname" value="{{$data['card']->cardname}}" required />
                         <label for="cardname">Card Name</label>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-floating form-floating-outline">
-                        <input class="form-control" type="text" name="serial" id="serial" required />
+                        <input class="form-control" type="text" name="serial" id="serial" value="{{$data['card']->serial}}" required />
                         <label for="serial">Serial</label>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-floating form-floating-outline">
-                        <input class="form-control" type="text" name="yea" id="year" required />
+                        <input class="form-control" type="text" name="yea" id="year" value="{{$data['card']->yea}}" required />
                         <label for="year">Year</label>
                     </div>
                 </div>
@@ -79,10 +80,10 @@
                     <div class="form-floating form-floating-outline">
                         <select name="lan" id="language" class="select2 form-select" required >
                                 <option value="">Select Language</option>
-                                <option value="English">English</option>
-                                <option value="Japanese">Japanese</option>
-                                <option value="Chinese">Chinese</option>
-                                <option value="Korean">Korean</option>
+                                <option @if($data['card']->lan == "English") selected @endif value="English">English</option>
+                                <option @if($data['card']->lan == "Japanese") selected @endif value="Japanese">Japanese</option>
+                                <option @if($data['card']->lan == "Chinese") selected @endif value="Chinese">Chinese</option>
+                                <option @if($data['card']->lan == "Korean") selected @endif value="Korean">Korean</option>
                         </select>
                         <label for="language">Language</label>
                     </div>
@@ -90,47 +91,47 @@
 
                 <div class="col-md-3">
                     <div class="form-floating form-floating-outline">
-                        <input class="form-control" type="text" name="variant" id="variant" required />
+                        <input class="form-control" type="text" name="variant" id="variant" value="{{$data['card']->variant}}" required />
                         <label for="variant">Variant</label>
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="form-floating form-floating-outline">
-                        <input class="form-control" type="text" name="front" id="front" required />
+                        <input class="form-control" type="text" name="front" id="front" value="{{$data['card']->front}}" required />
                         <label for="front">Front</label>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-floating form-floating-outline">
-                        <input class="form-control" type="text" name="sidecorners" id="sidecorners" required />
+                        <input class="form-control" type="text" name="sidecorners" id="sidecorners" value="{{$data['card']->sidecorners}}" required />
                         <label for="sidecorners">Sidecorners</label>
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="form-floating form-floating-outline">
-                        <input class="form-control" type="text" name="back" id="back" required />
+                        <input class="form-control" type="text" name="back" id="back" value="{{$data['card']->back}}" required />
                         <label for="back">Back</label>
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="form-floating form-floating-outline">
-                        <input class="form-control" type="text" name="centring" id="centring" required />
+                        <input class="form-control" type="text" name="centring" id="centring" value="{{$data['card']->centring}}" required />
                         <label for="centring">Centring</label>
                     </div>
                 </div>
 
                 <div class="col-md-12">
                     <div class="form-floating form-floating-outline">
-                        <input class="form-control" type="text" name="overall" id="overall" required />
+                        <input class="form-control" type="text" name="overall" id="overall" value="{{$data['card']->overall}}" required />
                         <label for="overall">Overall</label>
                     </div>
                 </div>
             </div>
             <div class="mt-4">
-                <button type="submit" id="add" class="btn btn-primary me-2">Add Card
+                <button type="submit" id="update" class="btn btn-primary me-2">Update Card
                 </button>
             </div>
             </form>
@@ -162,12 +163,14 @@
   };
 
   $(document).ready(function () {
+
+    $('select#language').val('English');
     // upload button converting into file button
     $("a#select-avatar").on("click", function () {
       $("#upfile").click();
     });
 
-    $("button#add").on("click", function () {
+    $("button#update").on("click", function () {
       var html = $(this).html();
       if($('input#cardname').val().length === 0 || $('input#serial').val().length === 0 || $('input#year').val().length === 0 || $('input#variant').val().length === 0 || $('input#front').val().length === 0 || $('input#sidecorners').val().length === 0 || $('input#back').val().length === 0 || $('input#centring').val().length === 0 || $('input#overall').val().length === 0 || $('select#language').val().length === 0){
         console.log('validation error');
